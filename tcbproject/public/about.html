@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Login</title>
+  <link rel="icon" type="image/png" href="images/icon.png" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <link rel="icon" href="https://www.w3schools.com/w3css/4/w3.css" >
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <link rel="stylesheet" href="css/rSlider.min.css">
+<!--   <link rel="stylesheet" type="text/css" href="cs/animate.css">
+-->
+
+
+<style type="text/css">
+.n {
+  font-size: 50px;
+  color: red;
+}
+
+/*=============  CSS FOR CANVAS BACKGROUND  =================*/
+#canvas{
+  width:100%;
+  height:320px;
+  overflow: hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color: #1a1724;              
+}
+.canvas-wrap{
+  position:relative;
+
+}
+div.canvas-content{
+  position:relative;
+  z-index:2000;
+  color:#fff;
+  text-align:center;
+  padding-top:30px;
+}
+/*================================================================*/
+
+/*MENU FIX*/
+
+#menu-fix {
+  position:fixed;
+  bottom:20px;
+  right:50px;
+  color: red;
+}
+
+
+/*CHART DISPLAY */
+
+
+
+/*===================== METER VALUE  ================*/
+
+.wrapper-meter {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin: 50px auto 0 auto;
+  padding-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  clear: both;
+}
+
+.box-meter {
+  float: left;
+  width: 50%;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+.container-meter {
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gauge-meter {
+  width: 300px;
+  height: 200px;
+}
+
+  /*button {
+    margin: 30px 5px 0 2px;
+    padding: 16px 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    background: #34aadc;
+    color: white;
+    cursor: pointer;
+    }*/
+
+    /*smooth scroll*/
+    body, html, .main {
+      height: 100%;
+    }
+
+    section {
+      min-height: 100%;
+    }
+
+
+
+
+  </style>
+</head>
+<body id="staggered-test">
+  <nav class="cyan" role="navigation">
+    <div class="nav-wrapper">
+      <a id="logo-container" href="#" class="brand-logo"><img style="height: 60px" src="images/logo1.png"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">account_circle</i></a></li>
+      </ul>
+
+      <ul id="slide-out" class="side-nav" style="background-image: url('images/background/navBar.png');">
+        <li>
+          <center>
+            <div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+              <a href="#!user"><img  style="height: 100px; width: 100px" class="circle" src="images/avatar/khuong1.jpg"></a>
+              <a href="#!name"><span class="white-text name">Pham Khuong</span></a>
+              <a href="#!email"><span class="white-text email">pakpham@gmail.com</span></a>
+            </div>
+          </center>
+          <hr><hr>
+        </li>
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="/home"> <i class="material-icons">home</i>Home</a></li>
+        
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">info</i>About</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <br><br>
+  <div class="row">
+    <div class="col s1">
+      
+    </div>
+
+    <div class="col s10">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i><b>MỤC TIÊU DỰ ÁN</b></div>
+          <div class="collapsible-body"><span>Trong giai đoạn công nghệ thông tin phát triển với tốc độ chóng mặt hiện nay,
+mọi lĩnh vực trong đời sống xã hội đã và đang ứng dụng hệ thống giám sát và
+điều khiển không dây qua hệ thống đám mây và Internet, được gọi tắt là Internet
+kết nối vạn vật – Internet of Things (IoT). Ngành thuỷ sản nước ta hiện nay cũng
+đang cập nhật công nghệ IoT để nâng cao năng suất và chất lượng sản phẩm đáp
+ứng nhu cầu xuất khẩu ngày càng cao trên thế giới. Đề tài “Giám sát thông số
+môi trường nước ứng dụng công nghệ IoT” là một nghiên cứu đáp ứng một phần
+nhu cầu trong sản xuất thuỷ sản nói chung và thuỷ sản khu vực Đồng bằng Sông
+Cửu Long nói riêng. Toàn bộ hệ thống là mô hình giám sát các thông số cơ bản
+môi trường nước như nhiệt độ nước, độ mặn, độ PH và độ hoà tan oxy trong
+nước.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">timeline</i><b>QUI TRÌNH HOẠT ĐỘNG</b></div>
+          <div class="collapsible-body"><span> Tất cả các quy trình giám sát điều khiển điều thực hiện một cách tự động
+theo thời gian thực và được xử lý bằng kit NodeMCU ESP8266. Hệ thống bao
+gồm một thuyền được thiết kế nhỏ gọn và hoạt động ổn định trên mặt nước.
+Phần Webapp được thiết kế với giao diện đẹp mắt, dễ sử dụng. Trên giao diện
+Webapp, người dùng có thể điều khiển hoặc giám sát mọi thông tin thông qua
+Internet, cho phép người sử dụng cạp nhật các thông tin về yếu tố môi trường
+nước trong sông, hồ thuỷ sản bất cứ lúc nào và bất cứ nơi đâu. Hệ thống được
+thiết kế thân thiện và dễ sửa chửa khi hư hỏng.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">vpn_lock</i><b>BẢO MẬT</b></div>
+          <div class="collapsible-body"><span>
+            Hệ thống được bảo mật bằng một tài khoảng gồm User và Password do người quản trị nắm giữ. Với tài khoảng bảo mật, người quản trị có quyền truy cập vào hệ thống cài đặt gồm: cài đặt thời gian lấy mẫu môi trường, cài đặt giá trị ngưỡng cảnh báo người dùng, thêm mail người đăng kí nhận cảnh báo. Ngoài ra, người quản trị còn có quyền thiết lập và điều khiển động cơ. Vấn đề liên quan xin vui lòng liên hệ người quản trị mạng nhóm dự án. Mail: <i>pakpham@gmail.com</i>
+          </span></div>
+        </li>
+        <li>
+        <div class="collapsible-header"><i class="material-icons">account_circle</i><b>LIÊN HỆ</b></div>
+        <div class="collapsible-body"><span>
+          <div class="row">
+            <div class="col s6">
+              <b>PHẠM ANH KHƯƠNG</b><br>
+              Thiết kế phần mềm
+              <ul>
+                <li><b>GMAIL:</b> <i>pakpham@gmail.com</i></li>
+                <li><b>Sdt:</b> <i>096 916 7964</i> </li>
+                <li><b>Fb:</b> <i>https://www.facebook.com/khuong250117</i></li>
+              </ul>
+            </div>
+            <div class="col s6">
+              <b>LÊ MẠNH HÙNG</b><br>
+              Thiết kế phần cứng
+              <ul>
+                <li><b>GMAIL:</b> <i>hungb1305699@student.ctu.edu.vn</i></li>
+                <li><b>Sdt:</b> <i>0126 889 7242</i> </li>
+                <li><b>Fb:</b> <i>https://www.facebook.com/manhhung.le.3745</i></li>
+              </ul>
+            </div>
+          </div>
+        </span></div>
+
+        </li>
+      </ul>
+
+      <center><b>TRƯỢC NGANG ĐỂ XEM HÌNH ẢNH LIÊN QUAN</b></center>
+      <div class="carousel carousel-slider">
+              <a class="carousel-item" href="#one!"><img src="images/thuyen0.JPG"></a>
+              <a class="carousel-item" href="#two!"><img src="images/thuyen1.JPG"></a>
+              <a class="carousel-item" href="#three!"><img src="images/thuyen2.JPG"></a>
+              <a class="carousel-item" href="#four!"><img src="images/thuyen3.JPG"></a>
+        
+
+      </div>
+    </div>
+
+    <div class="col s1">
+      
+    </div>
+  </div>
+
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text main">Objectives: </h5>
+        <p class="grey-text text-lighten-4">
+          “Monitoring water properties
+using IoT technology” is a project that aims to develop a flexible, reliable and
+automatic system for monitoring the environmental parameters of the water
+used in agriculture, in this instance, agriculture within the Mekong Delta. The
+solution’s model is a system that monitors certain properties of the water,
+namely temperature, salinity levels, pH values and oxygen dissolution. All
+measuring procedures are conducted automatically and the data is processed
+using IoT technology.
+        </p>
+
+
+      </div>
+      <div class="col l5 s12">
+        <h5>LINKS:</h5>
+        <ul>
+          <li>http://ngapmandbscl.org</li>
+          <li>http://nhiemmanct.vn</li>
+        </ul>
+
+      </div>
+      <div class="col l1 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a href="https://facebook.com/khuong250117"><i class="fa fa-facebook-square" style="font-size:36px;color:#3b5998"></i></a></li>
+          <li><a class="white-text" href="https://plus.google.com/u/0/101694428546619868396"><i class="fa fa-google-plus-square" style="font-size:36px"></i></a></li>
+          <li><a class="white-text" href="#!"><i class="material-icons" onclick="clickPhone()" style="font-size: 36px">phone</i></a></li>
+          <li><a class="white-text" href="mailto:pakpham@gmail.com"><i class="material-icons" style="font-size: 36px">email</i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container" style="text-align: center;">
+     © 2017 Nguyen Huynh Anh Duy. Pham Anh Khuong. Le Manh Hung
+     <br>
+     All Rights Reserved</
+   </div>
+ </div>
+</footer>
+
+
+<!-- =============  MENU FIX  =================== -->
+
+<div class="fixed-action-btn horizontal" id="menu-fix">
+  <a class="btn-floating btn-large red pulse">
+    <i class="large material-icons">perm_phone_msg</i>
+  </a>
+  <ul>
+    <li><a href="https://www.facebook.com/nhaduy" class="btn-floating red"><i class="material-icons">face</i></a></li>
+    <li style=""><a href="https://www.facebook.com/khuong250117" class="btn-floating red"><i class="material-icons" style="background-color: cyan">face</i></a></li>
+    <li><a href="mailto:pakpham@gmail.com" class="btn-floating yellow darken-1"><i class="material-icons">mail</i></a></li>
+    <!-- <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li> -->
+    <li><a onclick="clickPhone()" class="btn-floating blue"><i class="material-icons">local_phone</i> </a></li>
+  </ul>
+</div>
+<!-- ============================================================= -->
+
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+
+<!--===============================================================-->
+
+<!-- =========  CHART CANVAS  ======================================= -->
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<!-- ================================================================ -->
+
+<!-- ======================= METER CHAR  ======================== -->
+<script src="js/raphael-2.1.4.min.js"></script>
+<script src="js/justgage.js"></script>
+<!-- =============================================================== -->
+
+<script src="js/rSlider.min.js"></script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+  var socket = io();
+</script>
+
+
+<script type="text/javascript">
+  $('.carousel.carousel-slider').carousel({fullWidth: true});        
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <meta charset="utf-8">
+ <!-- <title>Super Project</title> -->
+ <title>Home</title>
+ <link rel="icon" type="image/png" href="images/icon.png" />
+ <!-- CSS -->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+ <link rel="icon" href="https://www.w3schools.com/w3css/4/w3.css" >
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+ <link rel="stylesheet" href="css/rSlider.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="cs/animate.css">
+-->
+
+
+<style type="text/css">
+.n {
+ font-size: 50px;
+ color: red;
+}
+
+/*============= CSS FOR CANVAS BACKGROUND =================*/
+#canvas{
+ width:100%;
+ height:320px;
+ overflow: hidden;
+ position:absolute;
+ top:0;
+ left:0;
+ background-color: #1a1724;  
+}
+.canvas-wrap{
+ position:relative;
+
+}
+div.canvas-content{
+ position:relative;
+ z-index:2000;
+ color:#fff;
+ text-align:center;
+ padding-top:30px;
+}
+/*================================================================*/
+
+/*MENU FIX*/
+
+#menu-fix {
+ position:fixed;
+ bottom:10px;
+ right:20px;
+ color: red;
+ opacity: 0.9;
+}
+#display-timer-fix {
+ position:fixed;
+ bottom:5px;
+ left:20px;
+ color: teal;
+ opacity: 0.7
+}
+#display-signal-fix {
+ position:fixed;
+ bottom:40px;
+ left:20px;
+ color: teal;
+ opacity: 0.7
+}
+
+
+/*CHART DISPLAY */
+
+
+
+/*===================== METER VALUE ================*/
+
+.wrapper-meter {
+ position: relative;
+ width: 640px;
+ height: 480px;
+ margin: 50px auto 0 auto;
+ padding-bottom: 30px;
+ border: 1px solid #ccc;
+ border-radius: 3px;
+ clear: both;
+}
+
+.box-meter {
+ float: left;
+ width: 50%;
+ height: 50%;
+ box-sizing: border-box;
+}
+
+.container-meter {
+ width: 450px;
+ margin: 0 auto;
+ text-align: center;
+}
+
+.gauge-meter {
+ width: 300px;
+ height: 200px;
+}
+
+ /*button {
+ margin: 30px 5px 0 2px;
+ padding: 16px 40px;
+ border-radius: 5px;
+ font-size: 18px;
+ border: none;
+ background: #34aadc;
+ color: white;
+ cursor: pointer;
+ }*/
+
+ /*smooth scroll*/
+ body, html, .main {
+ height: 100%;
+ }
+
+ section {
+ min-height: 100%;
+ }
+
+
+
+
+ </style>
+</head>
+<body id="staggered-test">
+ <!-- Scripts INIT-->
+ <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script src="js/materialize.js"></script>
+ <script src="js/init.js"></script>
+
+ <!--=========== JS FOR CANVAS BACKGROUND ====================-->
+ <!-- <script src="js/canvas-background/three.min.js"></script>
+ <script src="js/canvas-background/projector.js"></script>
+ <script src="js/canvas-background/canvas-renderer.js"></script>
+ <script src="js/canvas-background/3d-lines-animation.js"></script>
+ <script src="js/canvas-background/color.js"></script> -->
+ <!--===============================================================-->
+
+ <!-- ========= CHART CANVAS ======================================= -->
+ <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+ <!-- ================================================================ -->
+
+ <!-- ======================= METER CHAR ======================== -->
+ <script src="js/raphael-2.1.4.min.js"></script>
+ <script src="js/justgage.js"></script>
+ <!-- =============================================================== -->
+
+ <script src="js/rSlider.min.js"></script>
+ <script src="js/FileSaver.js"></script>
+ <script src="/socket.io/socket.io.js"></script>
+ <script type="text/javascript">
+ var socket = io();
+ </script>
+
+
+ <nav class="cyan" role="navigation">
+ <div class="nav-wrapper" >
+ <a id="logo-container" href="#" class="brand-logo"><img style="height: 60px" src="images/logo1.png"></a>
+ <ul class="right hide-on-med-and-down">
+ <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+ <li><a href="/about"><i class="material-icons">account_circle</i></a></li>
+ </ul>
+
+ <ul id="slide-out" class="side-nav" style="background-image: url('images/background/navBar.png');">
+ <li>
+  <center> 
+  <div class="user-view">
+  <div class="background">
+  <img src="images/office.jpg">
+  </div>
+  <a href="#!user"><img style="height: 100px; width: 100px" class="circle" src="images/avatar/khuong1.jpg"></a>
+  <a href="#!name"><span class="white-text name">Pham Khuong</span></a>
+  <a href="#!email"><span class="white-text email">pakpham@gmail.com</span></a>
+  </div>
+  </center>
+  <hr><hr>
+ </li>
+ <li><a style="font-size: 20px; font-family: ; font-weight: bold; color: #ede7f6" href="/home"> <i class="material-icons">home</i>Home</a></li>
+ <li><a href="https://controlmotor.herokuapp.com/" target="_blank" style="font-size: 20px; font-family: ; font-weight: bold; color: #ede7f6"> <i class="material-icons">call_split</i> Control Motor</a></li>
+ <li><a style="font-size: 20px; font-family: ; font-weight: bold; color: #ede7f6" class="graphView"> <i class="material-icons">timeline</i>Graph</a></li>
+ <li><a href="/login" style="font-size: 20px; font-family: ; font-weight: bold; color: #ede7f6"> <i class="material-icons">settings</i>Settings</a></li>
+ 
+ <li><a style="font-size: 20px; font-family: ; font-weight: bold; color: #ede7f6" href="/about"> <i class="material-icons">info</i>About</a></li>
+ </ul>
+ <ul class="right hide-on-med-and-down">
+ <li><a href="/home">Home</a></li>
+ <li><a href="https://controlmotor.herokuapp.com/" target="_blank">Control Motor</a></li>
+ <li><a  class="graphView">Graph</a></li>
+ <li><a href="/login">Settings</a></li>
+ <li><a href="/about">About</a></li>
+ </ul>
+ <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+ </div>
+ </nav>
+
+
+ <!-- <div class="canvas-wrap">
+ <div id="canvas" class="gradient" style=""></div>
+
+ <div id="index-banner" class="parallax-container">
+
+ <div class="section no-pad-bot" style="">
+ <div class="container" >
+  <br><br>
+
+  <h1 class="header center" style="color: black" id="sams">Water Automatic Monitoring System</h1>
+  <br>
+  <div class="row center" id="btn">
+  <a href="#view-value" class="btn-large waves-effect waves-light teal lighten-1" id="btn-value">view value</a>
+  <a href="#view-graph" class="btn-large waves-effect waves-light teal lighten-1" id="btn-graph">View Graph</a>
+  </div>
+  <a>Signal Mcu: <span id="signal">0</span><span>%</span></a>
+  <a style="border-left: solid;">Timer Mcu: <span id="timer"></span><span>minutes</span></a>
+ </div>
+ </div>
+ </div>
+ </div>
+ -->
+
+
+ 
+ <div class="slider">
+ <ul class="slides">
+ <li>
+ <img src="images/thuyen.JPG"> <!-- random image -->
+ <div class="caption center-align">
+  <h2 >Water Automatic Monitoring System</h2>
+  <h5 class="light grey-text text-lighten-3" style="color: cyan">Website for reseacher</h5>
+ </div>
+ </li>
+ <li>
+ <img src="images/iot.jpeg"> <!-- random image -->
+ <div class="caption left-align">
+  <h3 style="color: black">Interner Of Things</h3>
+  <h5 class="light grey-text text-lighten-3">IoT Technology</h5>
+ </div>
+ </li>
+ <li>
+ <img src="images/khuong-hung.JPG"> <!-- random image -->
+ <div class="caption right-align">
+  <h2 style="color: #006064">Pham Anh Khuong</h2>
+  <h2 style="color: #006064">Le Manh Hung</h2>
+  <h4 class="light grey-text text-lighten-3">Mechatronic Engineering</h4>
+ </div>
+ </li>
+ <li>
+ <img src="images/contact.jpg"> <!-- random image -->
+ <div class="caption center-align">
+  <h1>Contact Us</h1>
+  <h5 class="light grey-text text-lighten-3">pakpham@gmail.com</h5>
+  <h5 class="light grey-text text-lighten-3">(+84) 969167964</h5>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <script type="text/javascript">
+ $(document).ready(function(){
+ $('.slider').slider();
+ });
+ </script>
+
+
+<div class="row" style="border: 5px solid pink; border-radius: 50px;" id="value">
+
+ <div class="col s12 m4" style="border-right: 2px solid pink">
+ <div class="icon-block center" style="opacity: 0.9">
+ <h3 class="center" style="opacity: 0.9">Salinity</h3>
+ <center>
+ <div id="g1" class="gauge-meter" style="background-color: ;"></div>
+ </center>
+ </div>
+ </div> 
+ <div class="col s12 m4" style="border-right: 2px solid pink">
+ <div class="icon-block center" style="opacity: 0.9">
+ <h3 class="center" style="opacity: 0.9">Temperature</h3>
+ <center>
+ <div id="g2" class="gauge-meter" style="background-color: ;"></div>
+ </center>
+ </div>
+ </div> 
+ <div class="col s12 m4" style="background-color:">
+ <div class="icon-block center" style="opacity: 0.9">
+ <h3 class="center" style="opacity: 0.9; text-align: center;">Oxy</h3>
+ <center>
+ <div id="g3" class="gauge-meter" style="opacity: 0.5"></div>
+ </center>
+ </div>
+ </div> 
+</div>
+<br><br><br>
+
+
+
+<div class="row"">
+ <div class="col s12 center">
+ <h6 id="load-today" style="color: cyan; ">Today data loading</h6>
+ <div class="progress">
+ <div class="indeterminate" id="chart"></div>
+ </div>
+ </div>
+ <div id="chart-cont">
+ <div class="col s12 m6" id="view-graph">
+ <center>
+ <div id="chartContainerSali" style="height: 370px; width: 100%;"></div>
+ <br>
+ <div class="row">
+  <div class="col s6">
+  <label for="value-date-sali">Choose day</label>
+  <input type="text" class="datepicker" id="value-date-sali" value="Today">
+  </div>
+  <div class="col s6" style="text-align: left;">
+  <br><br>
+  <a class="waves-effect waves-light btn" id="btn-date-sali"><i class="material-icons left" >send</i>OK</a><br><br>
+  </div>
+ </div>
+
+ <div class="row">
+  <div class="col s6">
+  <label for="value-time-sali">Choose time</label>
+  <input type="text" id="slider-sali" />
+  <br>
+  <div class="progress">
+  <div class="determinate" id="loadDataChartSali"></div>
+  </div>
+  <a class="waves-effect waves-light btn" id="btn-down-sali" onclick="downloadSali()"><i class="material-icons left" >cloud_download</i>DOWNLOAD TEXT FILE</a>
+  </div>
+  <div class="col s6" style="text-align: left;">
+  <!-- <a class="waves-effect waves-light btn " id="btn-time-sali">SEND<i class="material-icons left">send</i></a> -->
+  </div>
+ </div>
+
+ </center>
+ </div>
+
+ <div class="col s12 m6">
+ <center>
+ <div id="chartContainerTemp" style="height: 370px; width: 100%;"></div>
+ <br>
+ <div class="row">
+ <div class="col s6">
+  <label for="value-date">Choose day</label>
+  <input type="text" class="datepicker" id="value-date-temp" value="Today">
+ </div>
+
+ <div class="col s6" style="text-align: left;">
+  <br><br>
+  <a class="waves-effect waves-light btn" id="btn-date-temp">OK<i class="material-icons left" >send</i></a>
+  
+ </div>
+ </div>
+
+ <div class="row">
+ <div class="col s6">
+  <label for="value-time-temp">Choose time</label> 
+  <input type="text" id="slider-temp" />
+  <br>
+  <div class="progress">
+  <div class="determinate" id="loadDataChartTemp"></div>
+  </div>
+  <a class="waves-effect waves-light btn" id="btn-down-temp" onclick="downloadTemp()"><i class="material-icons left" >cloud_download</i>DOWNLOAD TEXT FILE</a>
+ </div>
+ <div class="col s6" style="text-align: left;">
+  <!-- <a class="waves-effect waves-light btn " id="btn-time-temp">SEND<i class="material-icons left" >send</i></a> -->
+ </div>
+ </div>
+ </center>
+ </div>
+</div>
+</div>
+
+
+<br><br>
+
+<div class="row">
+ <div class="col s12 center">
+ <h4>Location on Google map</h4>
+ <div id="map" style="width: 100%;height:500px;"></div>
+ </div>
+</div>
+
+<br><br>
+
+
+
+<div class="parallax-container" style="">
+ <div class="container">
+
+ <div class="row center">
+ <div class="col s12">
+ <h2>About Us</h2>
+ </div>
+
+ <div class="col s12 l6">
+   <div style="border: 1px solid black; border-radius: 50px;">
+    <div class="card-content white-text">
+      <center>
+        <h5>
+          <img style="border-radius: 50%" class="materialboxed img" data-caption="Pham Anh Khuong" width="170" src="images/avatar/khuong1.jpg" >
+        </h5>
+      </center>
+    </div>
+    <div class="">
+      <p>Pham Anh Khuong <br>
+        Website Developer <br>
+      Mechatronic Enginreering</p>
+
+    </div>
+  </div>
+</div>
+
+
+ <div class="col s12 l6">
+ <div style="border: 1px solid black; border-radius: 50px">
+ <div class="card-content white-text">
+  <center>
+  <h5>
+  <img style="border-radius: 50%" class="materialboxed img" data-caption="Pham Anh Khuong" width="170" src="images/avatar/hung.jpg" >
+  </h5>
+  </center>
+ </div>
+ <div class="">
+  <p>Le Manh Hung <br>
+  Hardware Engineer <br>
+  Mechatronic Enginreering</p>
+
+ </div>
+ </div>
+ </div>
+ </div>
+
+</div>
+<div class="parallax"><img src="images/can-tho-brigde.jpg" alt="Unsplashed background img 3" style="opacity: 0.9;"></div>
+</div>
+
+
+<footer class="page-footer teal">
+ <div class="container">
+ <div class="row">
+ <div class="col l6 s12">
+ <h5 class="white-text main">Objectives: </h5>
+ <p class="grey-text text-lighten-4">“Monitoring water properties
+using IoT technology” is a project that aims to develop a flexible, reliable and
+automatic system for monitoring the environmental parameters of the water
+used in agriculture, in this instance, agriculture within the Mekong Delta. The
+solution’s model is a system that monitors certain properties of the water,
+namely temperature, salinity levels, pH values and oxygen dissolution. All
+measuring procedures are conducted automatically and the data is processed
+using IoT technology.
+ </p>
+
+
+ </div>
+ <div class="col l5 s12">
+ <h5>LINKS:</h5>
+ <ul>
+  <li>http://ngapmandbscl.org</li>
+  <li>http://nhiemmanct.vn</li>
+ </ul>
+
+ </div>
+ <div class="col l1 s12">
+ <h5 class="white-text">Connect</h5>
+ <ul>
+  <li><a href="https://facebook.com/khuong250117"><i class="fa fa-facebook-square" style="font-size:36px;color:#3b5998"></i></a></li>
+  <li><a class="white-text" href="https://plus.google.com/u/0/101694428546619868396"><i class="fa fa-google-plus-square" style="font-size:36px"></i></a></li>
+  <li><a class="white-text" href="#!"><i class="material-icons" onclick="clickPhone()" style="font-size: 36px">phone</i></a></li>
+  <li><a class="white-text" href="mailto:pakpham@gmail.com"><i class="material-icons" style="font-size: 36px">email</i></a></li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ <div class="footer-copyright">
+ <div class="container" style="text-align: center;">
+ © 2017 Nguyen Huynh Anh Duy. Pham Anh Khuong. Le Manh Hung
+ <br>
+ All Rights Reserved</
+ </div>
+ </div>
+</footer>
+
+
+<!-- ============= MENU FIX =================== -->
+
+<div class="chip" id="display-timer-fix">
+ <i class="material-icons" style="">av_timer</i>
+ <span id="timer" style="color: lime"></span> seconds
+</div>
+<div class="chip" id="display-signal-fix">
+ <i class="material-icons">network_check</i>
+ <span id="signal" style="color: lime"></span> 
+</div>
+<div class="fixed-action-btn horizontal" id="menu-fix">
+ <a class="btn-floating btn-large red pulse">
+ <i class="large material-icons">perm_phone_msg</i>
+ </a>
+ <ul>
+ <li><a href="https://www.facebook.com/nhaduy" class="btn-floating red"><i class="material-icons">face</i></a></li>
+ <li style=""><a href="https://www.facebook.com/khuong250117" class="btn-floating red"><i class="material-icons" style="background-color: cyan">face</i></a></li>
+ <li><a href="mailto:pakpham@gmail.com" class="btn-floating yellow darken-1"><i class="material-icons">mail</i></a></li>
+ <!-- <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li> -->
+ <li><a onclick="clickPhone()" class="btn-floating blue"><i class="material-icons">local_phone</i> </a></li>
+ </ul>
+</div>
+<!-- ============================================================= -->
+
+
+
+
+
+
+<script type="text/javascript">
+  socket.emit ('home-site',{});
+ /////// SLIDER ////////////////////////////////////////////////////
+ var minSali, maxSali, minTemp, maxTemp,disableTemp = false, disableSali = false;
+ var sliderSali = new rSlider({
+  target: '#slider-sali',
+
+  values: {min: 00, max: 24},
+  range: true,
+  tooltip: true,
+  scale: false,
+  labels: false,
+  step: 1,
+  width:170,
+  disabled: disableSali,
+ });
+ var sliderTemp = new rSlider({
+  target: '#slider-temp',
+  values: {min: 00, max: 24},
+  range: true,
+  tooltip: true,
+  scale: false,
+  labels: false,
+  step: 1,
+  disabled: disableTemp,
+  width:170
+ });
+
+ // setInterval(function() {
+ // sliderTemp.disabled(false);
+ // sliderSali.disabled(false);
+ // sliderSali.setValues(3,7);
+ // // sliderTemp.onChange(function (values) {
+ // // alert(values);
+ // // });
+ // // sliderTemp.onChange(function (values) {
+ // alert (values); 
+ // },3000);
+
+ // $(document).ready (function(){
+ // $('#slider-sali-container').addClass('animated fadeOut');
+ // $('#slider-temp-container').addClass('animated fadeOut');
+ // })
+
+
+ ////////////////////////////////////////////////////////////////////////
+ function queryTime(hourStart, hourEnd, data) {
+ var tempQueryTime = [];
+ for (var i = 0; i < data.length; i ++){
+ if ((data[i].hour >= hourStart)&&(data[i].hour <= hourEnd)) {
+ tempQueryTime[tempQueryTime.length] = data[i];
+ }
+ }
+ return tempQueryTime;
+ }
+ ////////////////////////////////////////////////////////////////////////
+
+
+
+ var dataSali, dataTemp, dataPh, dataOxi;
+
+ //// RECEIVE data SALI ///////////////////////////////////////
+
+ var counterDataChart1 = 0;
+ socket.on ('data' , function(data) {
+ console.log ("Data Value real-time: "+ JSON.stringify(data));
+ saliValue = data.sali;
+ temperValue = data.temp; 
+ })
+ socket.on ('dataChartSali', function(data) {
+ console.log ("Receiver Data Sali " + data.length);
+ if (data.length == 0 ){
+ document.getElementById("chart").classList.add('determinate');
+ $('#load-today').addClass('animated zoomOut');
+ }
+ dataSali = data;
+ // console.log (dataSali);
+ //console.log ('Receiver Data: ' + dataSali [0].y + " " + dataSali[15].y);
+ // RESET BUTTON /////////////////
+ document.getElementById("chart").classList.add('determinate');
+ $('#load-today').addClass('animated zoomOut');
+ document.getElementById("btn-date-sali").classList.remove('disabled');
+ document.getElementById("loadDataChartSali").classList.add('determinate');
+ document.getElementById("loadDataChartSali").classList.remove('indeterminate');
+ document.getElementById("btn-down-sali").classList.remove('disabled');
+
+ /////////////////////////////////
+ if (counterDataChart1 != 0){
+ var timeSali;
+ timeSali = readTimeSali ();
+ console.log ('Time Sali: ' + timeSali[0] + '; ' + timeSali[1]);
+ dataSali = queryTime (timeSali[0], timeSali[1], dataSali);
+ if (dataSali.length == 0 ) {
+ alert ("[Salinity] Data is not available at this time!");
+ }
+ window.onload();
+ }
+ if (counterDataChart1 == 0){
+ setTimeout(function() {
+ //saliValue = dataSali[dataSali.length-1].y;
+ window.onload();
+ },1000);
+ } 
+ ++counterDataChart1;
+
+ })
+ ////////////////////////////////////////////////////////////////
+ 
+
+ //// RECEIVE data Temp ///////////////////////////////////////
+ var counterDataChart2 = 0;
+ socket.on ('dataChartTemp', function(data) {
+ dataTemp = data;
+ //temperValue = dataTemp[dataTemp.length -1].y;
+ //console.log ('Receiver Data: ' + dataTemp [0].y + " " + dataTemp[15].y);
+ // RESET BUTTON /////////////
+ document.getElementById("btn-date-temp").classList.remove('disabled');
+ document.getElementById("loadDataChartTemp").classList.add('determinate');
+ document.getElementById("loadDataChartTemp").classList.remove('indeterminate');
+ document.getElementById("btn-down-temp").classList.remove('disabled');
+ ////////////////////////////
+
+ document.getElementById("chart").classList.add('determinate');
+
+ if (counterDataChart2 != 0){
+ var timeTemp;
+ timeTemp = readTimeTemp ();
+ console.log ('Time Temp: ' + timeTemp[0] + '; ' + timeTemp[1]);
+ dataTemp = queryTime (timeTemp[0], timeTemp[1], dataTemp);
+ if (dataTemp.length == 0 ) {
+ alert ("[Temp] Data is not available at this time!");
+ }
+ window.onload();
+
+ }
+ ++counterDataChart2;
+ })
+ ////////////////////////////////////////////////////////////////
+ 
+ socket.on ('infoMcu', function(data) {
+ console.log ("[InFo MCU] "+ data);
+ if (JSON.parse(data).signal == 0 ) {
+ document.getElementById('signal').innerHTML = 'MCU disconnect';
+ }
+ else {
+ document.getElementById('signal').innerHTML = JSON.parse(data).signal + '%';
+ }
+ document.getElementById('timer').innerHTML = JSON.parse(data).timer;
+ 
+ });
+
+ socket.on ('debug', function(data) {
+ //console.log ('pakkkk');
+ if (data.type == 'sali'){
+ alert ("[Salinity] Data is not available at this day!");
+ document.getElementById("btn-date-sali").classList.remove('disabled');
+ document.getElementById("loadDataChartSali").classList.add('determinate');
+ document.getElementById("loadDataChartSali").classList.remove('indeterminate');
+ document.getElementById("chart").classList.add('determinate');
+ document.getElementById("btn-down-sali").classList.remove('disabled');
+ document.getElementById('value-date-sali').value = "";
+ }
+
+ if (data.type == 'temp'){
+ alert ("[Temperature] Data is not available at this day!");
+ document.getElementById("btn-date-temp").classList.remove('disabled');
+ document.getElementById("loadDataChartTemp").classList.add('determinate');
+ document.getElementById("loadDataChartTemp").classList.remove('indeterminate');
+ document.getElementById("chart").classList.add('determinate');
+ document.getElementById("btn-down-temp").classList.remove('disabled');
+ document.getElementById('value-date-temp').value = ""
+ }
+
+ })
+
+ function clickPhone (){
+ Materialize.toast('Khuong: (+84) 96 916 7964 <br/> Hung: (+84) 126 889 7242', 5000, 'rounded')
+ }
+ Materialize.fadeInImage('#myTitle');
+
+ var options = [
+ {selector: '#staggered-test', offset: 50, callback: function(el) {
+ Materialize.toast("DEMO Version", 500 );
+ } },
+ {selector: '#staggered-test', offset: 205, callback: function(el) {
+ Materialize.toast("pakpham@gmail.com", 1000 );
+ } },
+ {selector: '#staggered-test', offset: 400, callback: function(el) {
+ Materialize.showStaggeredList($(el));
+ } },
+ {selector: '#image-test', offset: 500, callback: function(el) {
+ Materialize.fadeInImage($(el));
+ } }
+ ];
+ Materialize.scrollFire(options);
+
+
+ // ============================= CHAT CANVAS =============================
+ //displayChart();
+ var co = 'light2';
+ window.onload = function () {
+ var chart = new CanvasJS.Chart("chartContainerSali", {
+ theme: co,
+ animationEnabled: true,
+ title:{
+ text: "Graph of Salinity"
+ },
+ axisY :{
+ includeZero: false,
+ title: "salinity (ppm)",
+ suffix: ""
+ },
+ toolTip: {
+ shared: "true"
+ },
+ legend:{
+ cursor:"pointer",
+ itemclick : toggleDataSeries
+ },
+ data: [{
+ type: "spline",
+ visible: true,
+ showInLegend: true,
+ yValueFormatString: "##.0 ppm",
+ name: "Salinity",
+ dataPoints: dataSali,
+ },]
+ });
+ chart.render();
+ function toggleDataSeries(e) {
+ if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+ e.dataSeries.visible = false;
+ } else {
+ e.dataSeries.visible = true;
+ }
+ chart.render();
+ } 
+
+ //CHART TEMPERATURE
+ var chart1 = new CanvasJS.Chart("chartContainerTemp", {
+ theme: co,
+ animationEnabled: true,
+ title:{
+  text: "Graph of Temperature"
+ },
+ axisY :{
+  includeZero: false,
+  title: "temperature (℃)",
+  suffix: ""
+ },
+ toolTip: {
+  shared: "true"
+ },
+ legend:{
+  cursor:"pointer",
+  itemclick : toggleDataSeries1
+ },
+ data: [{
+  type: "spline",
+  visible: true,
+  showInLegend: true,
+  yValueFormatString: "##.0 ℃",
+  name: "Salinity",
+  dataPoints: dataTemp,
+ },]
+ });
+ chart1.render();
+ function toggleDataSeries1(e) {
+ if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+  e.dataSeries.visible = false;
+ } else {
+  e.dataSeries.visible = true;
+ }
+ chart1.render();
+ }
+ }
+
+
+ //========== ======== =========  =========== =========
+
+ // =============== METER DISPLAY ====================
+ var g1, g2, g4, abc = 5;
+ var saliValue = 0, temperValue = 0, oxiValue = 0;
+ var preSaliValue = saliValue;
+ var preTemperValue = temperValue;
+ var preOxiValue = oxiValue;
+ document.addEventListener("DOMContentLoaded", function(event) {
+
+ g1 = new JustGage({
+ id: 'g1',
+ value: 0,
+ min: 0,
+ max: 5000,
+ symbol: 'ppm',
+ pointer: true,
+ pointerOptions: {
+ toplength: -15,
+ bottomlength: 10,
+ bottomwidth: 12,
+ color: '#8e8e93',
+ stroke: '#ffffff',
+ stroke_width: 5,
+ stroke_linecap: 'round'
+ },
+ gaugeWidthScale: 0.5,
+ counter: true
+ });
+
+ g2 = new JustGage({
+ id: 'g2',
+ value: 0,
+ min: 0,
+ max: 100,
+ symbol: ' ℃',
+ pointer: true,
+ pointerOptions: {
+ toplength: -15,
+ bottomlength: 20,
+ bottomwidth: 12,
+ color: '#8e8e93',
+ stroke: '#ffffff',
+ stroke_width: 5,
+ stroke_linecap: 'round'
+ },
+ gaugeWidthScale: 0.5,
+ counter: true
+ });
+
+ g3 = new JustGage({
+ id: 'g3',
+ value: 0,
+ min: 0,
+ max: 100,
+ symbol: ' %',
+ pointer: true,
+ pointerOptions: {
+ toplength: -15,
+ bottomlength: 10,
+ bottomwidth: 12,
+ color: '#8e8e93',
+ stroke: '#ffffff',
+ stroke_width: 5,
+ stroke_linecap: 'round'
+ },
+ gaugeWidthScale: 0.5,
+ counter: true
+ });
+
+ setInterval(function() {
+ if ((preSaliValue != saliValue)||(preTemperValue!=temperValue)||(preOxiValue!=oxiValue)){
+ g1.refresh(saliValue);
+ g2.refresh(temperValue);
+ g3.refresh(oxiValue);
+
+ preSaliValue = saliValue;
+ preTemperValue = temperValue;
+ preOxiValue = oxiValue;
+ }
+ },700);
+ });
+ // setTimeout(function() { 
+ // saliValue = 4 ;
+ // preTemperValue = 13;
+ // oxiValue = 90;
+ // },3000);
+ //////////////////////////////////////////////////////////
+
+
+
+///////////////////// smooth effert //////////////////////
+$(document).ready(function(){
+ // Add smooth scrolling to all links
+
+ $('.datepicker').pickadate({
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15, // Creates a dropdown of 15 years to control year,
+  today: 'Today',
+  clear: 'Clear',
+  close: 'Ok',
+  closeOnSelect: false // Close upon selecting a date,
+ });
+
+ $('#btn-date-sali').click(function (){
+ selectDateSali();
+ 
+ //$('#btn-date').addClass('animated zoomOutUp');
+ document.getElementById("btn-date-sali").classList.add('disabled');
+ document.getElementById("loadDataChartSali").classList.remove('determinate');
+ document.getElementById("loadDataChartSali").classList.add('indeterminate');
+ document.getElementById("chart").classList.remove('determinate');
+ document.getElementById("btn-down-sali").classList.add('disabled');
+ });
+
+
+ $('#btn-date-temp').click(function (){
+ selectDateTemp();
+  //$('#btn-date').addClass('animated zoomOutUp');
+  document.getElementById("btn-date-temp").classList.add('disabled');
+  document.getElementById("loadDataChartTemp").classList.remove('determinate');
+  document.getElementById("loadDataChartTemp").classList.add('indeterminate');
+  document.getElementById("chart").classList.remove('determinate');
+  document.getElementById("btn-down-temp").classList.add('disabled');
+ });
+
+ /////////// TIMEPICKER ////////////////////////////////////////////////
+ // $('.timepicker').pickatime({
+ // default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+ // fromnow: 0, // set default time to * milliseconds from now (using with default = 'now')
+ // twelvehour: false, // Use AM/PM or 24-hour format
+ // donetext: 'OK', // text for done-button
+ // cleartext: 'Clear', // text for clear-button
+ // canceltext: 'Cancel', // Text for cancel-button
+ // autoclose: true, // automatic close timepicker
+ // ampmclickable: true, // make AM PM clickable
+ // aftershow: function(){} //Function for after opening timepicker
+ // });
+ ///////////////////////////////////////////////////////////////////////
+
+
+ 
+
+ // Smooth scrool ======================================
+ $("#btn-value").on('click', function(event) {
+
+ // Make sure this.hash has a value before overriding default behavior
+ if (this.hash !== "") {
+  // Prevent default anchor click behavior
+  event.preventDefault();
+
+  // Store hash
+  var hash = this.hash;
+
+  // Using jQuery's animate() method to add smooth page scroll
+  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+  $('html, body').animate({
+  scrollTop: $(hash).offset().top
+  }, 800, function(){
+
+  // Add hash (#) to URL when done scrolling (default click behavior)
+  window.location.hash = hash;
+  });
+ } // End if
+ });
+
+ $(".graphView").on('click', function(event) {
+
+ // Make sure this.hash has a value before overriding default behavior
+ if (this.hash !== "") {
+  // Prevent default anchor click behavior
+  event.preventDefault();
+
+  // Store hash
+  var hash = this.hash;
+
+  // Using jQuery's animate() method to add smooth page scroll
+  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+  $('html, body').animate({
+  scrollTop: $(hash).offset().top
+  }, 800, function(){
+
+  // Add hash (#) to URL when done scrolling (default click behavior)
+  window.location.hash = hash;
+  });
+ } // End if
+ });
+ //=====================================================
+
+ // Effert==============================================
+ setTimeout(function(){
+ //$('#chart-cont').addClass('animated fadeOut');
+ // $('#sams').addClass('animated flipInX');
+ // $('#btn').addClass('animated fadeInUp');
+ // $('#value').addClass('animated fadeInUp');
+ $('#display-signal-fix').addClass('animated tada');
+ //$('#slider-sali-container').addClass('animated fadeOut');
+ //$('#slider-temp-container').addClass('animated fadeOut');
+ },10000);
+ //=====================================================
+
+ });
+
+///// SECLECT DATE TIME //////////////////////////////////////////
+function selectDateSali () {
+ var date;
+ date = document.getElementById('value-date-sali').value;
+ var dateParse;
+ dateParse = date.split (' ');
+ day = dateParse[0];
+ if (day <10) {
+ day = '0' + day;
+ }
+ mon = dateParse[1].slice(0,3);
+ year = dateParse[2];
+ console.log (mon);
+ socket.emit ('selectDateSali', {day:day,mon:mon,year:year});
+ // var temp123 = readTimeSali();
+ // console.log ('temp123: ' + temp123);
+}
+function selectDateTemp () {
+ var date;
+ date = document.getElementById('value-date-temp').value;
+ var dateParse;
+ dateParse = date.split (' ');
+ day = dateParse[0];
+ if (day <10) {
+ day = '0' + day;
+ }
+ mon = dateParse[1].slice(0,3);
+ year = dateParse[2];
+ console.log (mon);
+ socket.emit ('selectDateTemp', {day:day,mon:mon,year:year});
+ // var temp123 = readTimeTemp();
+ // console.log ('temp123: ' + temp123);
+}
+
+//----------------- TIME ---------------------------------
+function readTimeSali() {
+ var timeParse, timeInt = [];
+ timeParse = sliderSali.getValue().split(',');
+ timeInt[0] = parseInt (timeParse[0]);
+ timeInt[1] = parseInt (timeParse[1]);
+ 
+ return timeInt;
+}
+
+
+function readTimeTemp() {
+ var timeParse, timeInt = [];
+ timeParse = sliderTemp.getValue().split(',');
+ timeInt[0] = parseInt (timeParse[0]);
+ timeInt[1] = parseInt (timeParse[1]);
+ 
+ return timeInt;
+}
+
+function downloadSali () {
+  var text = [JSON.stringify(dataSali)] ;
+  var blob = new Blob(text, {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "Data salinity.txt");
+}
+
+function downloadTemp () {
+  var text = [JSON.stringify(dataTemp)] ;
+  var blob = new Blob(text, {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "Data temperature.txt");
+}
+//////////////////////////////////////////////////////////////
+
+
+
+// GOOGLE MAP/////////////////////////////////////////////////////
+function initMap() {
+ var cairo = {lat: 10.034539, lng: 105.810772 };
+
+ var map = new google.maps.Map(document.getElementById('map'), {
+ scaleControl: true,
+ center: cairo,
+ zoom: 10
+ });
+
+ var infowindow = new google.maps.InfoWindow;
+ infowindow.setContent('<b style="color: black">Here</b>');
+
+ var marker = new google.maps.Marker({map: map, position: cairo});
+ marker.addListener('click', function() {
+ infowindow.open(map, marker);
+ });
+}
+/////////////////////////////////////////////////////////////////
+
+
+</script>
+
+<!-- MAP -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI-9U7EhMmHWpEfNyhTusK6x1YbSHCoXI&callback=initMap"></script>
+
+</body>
+</html>

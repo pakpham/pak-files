@@ -1,0 +1,33 @@
+mail:
+acc: tcb.bang@gmail.com
+pass: trancongbanggg
+============================
+
+heroku:
+acc: tcb.bang@gmail.com
+pass: congbang.18
+===========================
+
+mongodb:
+acc: pakpham@gmail.com
+pass: Congbang.18
+
+admin:
+name: congbang
+pass: congbang.18
+link: mongodb+srv://congbang:<PASSWORD>@cluster0-trnvi.mongodb.net/test
+=======================================================================
+
+mqttBroker:
+acc: tcb.bang@gmail.com
+pass: congbang.18
+-----------------------
+Server		m14.cloudmqtt.com
+User		hoilubae
+Password	yCHZ1W7kwHv7
+Port		14396
+SSL Port	24396
+Websockets Port (TLS only)	34396
+Connection limit		10
+link socketUI:	https://api.cloudmqtt.com/console/9755278/websocket
+===================================================================

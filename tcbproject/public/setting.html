@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Setting</title>
+  <link rel="icon" type="image/png" href="images/icon.png" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <link rel="icon" href="https://www.w3schools.com/w3css/4/w3.css" >
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <link rel="stylesheet" href="css/rSlider.min.css">
+<!--   <link rel="stylesheet" type="text/css" href="cs/animate.css">
+-->
+
+
+<style type="text/css">
+.n {
+  font-size: 50px;
+  color: red;
+}
+
+/*=============  CSS FOR CANVAS BACKGROUND  =================*/
+#canvas{
+  width:100%;
+  height:320px;
+  overflow: hidden;
+  position:absolute;
+  top:0;
+  left:0;
+  background-color: #1a1724;              
+}
+.canvas-wrap{
+  position:relative;
+
+}
+div.canvas-content{
+  position:relative;
+  z-index:2000;
+  color:#fff;
+  text-align:center;
+  padding-top:30px;
+}
+/*================================================================*/
+
+/*MENU FIX*/
+
+#menu-fix {
+  position:fixed;
+  bottom:20px;
+  right:50px;
+  color: red;
+}
+
+
+/*CHART DISPLAY */
+
+
+
+/*===================== METER VALUE  ================*/
+
+.wrapper-meter {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin: 50px auto 0 auto;
+  padding-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  clear: both;
+}
+
+.box-meter {
+  float: left;
+  width: 50%;
+  height: 50%;
+  box-sizing: border-box;
+}
+
+.container-meter {
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gauge-meter {
+  width: 300px;
+  height: 200px;
+}
+
+  /*button {
+    margin: 30px 5px 0 2px;
+    padding: 16px 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    background: #34aadc;
+    color: white;
+    cursor: pointer;
+    }*/
+
+    /*smooth scroll*/
+    body, html, .main {
+      height: 100%;
+    }
+
+    section {
+      min-height: 100%;
+    }
+
+
+
+
+  </style>  
+</head>
+<body id="staggered-test">
+  <nav class="cyan" role="navigation">
+    <div class="nav-wrapper">
+      <a id="logo-container" href="/home" class="brand-logo"><img style="height: 60px" src="images/logo1.png"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+        <li><a href="/about"><i class="material-icons">account_circle</i></a></li>
+      </ul>
+
+      <ul id="slide-out" class="side-nav" style="background-image: url('images/background/navBar.png');">
+        <li>
+          <center>
+            <div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+              <a href="#!user"><img  style="height: 100px; width: 100px" class="circle" src="images/avatar/khuong1.jpg"></a>
+              <a href="#!name"><span class="white-text name">Pham Khuong</span></a>
+              <a href="#!email"><span class="white-text email">pakpham@gmail.com</span></a>
+            </div>
+          </center>
+          <hr><hr>
+        </li>
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="/home"> <i class="material-icons">home</i>Home</a></li>
+        <li><a href="https://ngthuyngan.herokuapp.com/login" style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">call_split</i> Control  Motor</a></li>
+        <li><a href="https://ngthuyngan.herokuapp.com/login" style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">timeline</i>Graph</a></li>
+        <li><a href="https://ngthuyngan.herokuapp.com/login" style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">settings</i>Settings</a></li>
+        
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="/about"> <i class="material-icons">info</i>About</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <br><br><br>
+  <div class="row">
+    
+    <div class="col s3"></div>
+
+    <div class="col s6 center" style="text-align: left;">
+      <label>Thời gian lấy mẫu định kì</label>
+      <select class="browser-default" id="timer">
+        <option value=""></option>
+        <option value=3600>60 minutes</option>
+        <option value=1800>30 minutes</option>
+        <option value=600>10 minutes</option>
+        <optgroup label="REALTIME">
+        <option value=15>15 seconds</option>
+        <option value=7>7 seconds</option>
+        <option value=3>3 seconds (Cảnh báo kết nối)</option>
+        </optgroup>
+      </select>
+      <br>
+      <!--     <label>Thời gian lây mẫu khi bật real-time Graph</label>
+      <select class="browser-default" id="timer-realtime">
+        <option value=""></option>
+        <option value=1>1 seconds (Cảnh báo kết nối)</option>
+        <option value=3>3 seconds</option>
+        <option value=7>7 seconds</option>
+        <option value=10>10 seconds</option>
+      </select> -->
+      <br><br>
+      <div id="alert-setting">
+        <label>Cảnh báo độ mặn (ppm)</label>
+        <form action="#">
+          <p class="range-field alert-setting">
+            <input type="range" id="slider-sali" min="0" max="10000" />
+          </p>
+        </form>
+        <div class="switch">
+          <label>
+            TRÊN
+            <input disabled type="checkbox">
+            <span class="lever"></span>
+            DƯỚI
+          </label>
+        </div>
+        <br><br>
+        <label>Cảnh báo nhiệt độ (°C)</label>
+        <form action="#">
+          <p class="range-field alert-setting">
+            <input type="range" id="slider-temper" min="0" max="100" />
+          </p>
+        </form>
+        <div class="switch">
+          <label>
+            TRÊN
+            <input disabled type="checkbox">
+            <span class="lever"></span>
+            DƯỚI
+          </label>
+        </div>
+      </div>
+      <br><br>
+      <hr>
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate" value="">
+        <label for="email" data-error="wrong" data-success="right">Thêm mail nhận thông báo</label>
+      </div>
+      <br><br>
+       <div class="progress">
+        <div id="change-loader" class="determinate indeterminate "></div>
+      </div>
+      <button class="btn" id="btn-change" onclick="clickChange()">UPDATE</button>
+    </div>
+
+    <div class="col s3"></div>
+  </div>
+
+
+    
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text main">Objectives: </h5>
+          <p class="grey-text text-lighten-4">
+            “Monitoring water properties
+using IoT technology” is a project that aims to develop a flexible, reliable and
+automatic system for monitoring the environmental parameters of the water
+used in agriculture, in this instance, agriculture within the Mekong Delta. The
+solution’s model is a system that monitors certain properties of the water,
+namely temperature, salinity levels, pH values and oxygen dissolution. All
+measuring procedures are conducted automatically and the data is processed
+using IoT technology.
+          </p>
+
+
+        </div>
+        <div class="col l5 s12">
+          <h5>LINKS:</h5>
+          <ul>
+            <li>http://ngapmandbscl.org</li>
+            <li>http://nhiemmanct.vn</li>
+          </ul>
+
+        </div>
+        <div class="col l1 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a href="https://facebook.com/khuong250117"><i class="fa fa-facebook-square" style="font-size:36px;color:#3b5998"></i></a></li>
+            <li><a class="white-text" href="https://plus.google.com/u/0/101694428546619868396"><i class="fa fa-google-plus-square" style="font-size:36px"></i></a></li>
+            <li><a class="white-text" href="#!"><i class="material-icons" onclick="clickPhone()" style="font-size: 36px">phone</i></a></li>
+            <li><a class="white-text" href="mailto:pakpham@gmail.com"><i class="material-icons" style="font-size: 36px">email</i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container" style="text-align: center;">
+       © 2017 Nguyen Huynh Anh Duy. Pham Anh Khuong. Le Manh Hung
+       <br>
+       All Rights Reserved</
+     </div>
+   </div>
+  </footer>
+
+  <!-- =============  MENU FIX  =================== -->
+
+  <div class="fixed-action-btn horizontal" id="menu-fix">
+    <a class="btn-floating btn-large red pulse">
+      <i class="large material-icons">perm_phone_msg</i>
+    </a>
+    <ul>
+      <li><a href="https://www.facebook.com/nhaduy" class="btn-floating red"><i class="material-icons">face</i></a></li>
+      <li style=""><a href="https://www.facebook.com/khuong250117" class="btn-floating red"><i class="material-icons" style="background-color: cyan">face</i></a></li>
+      <li><a href="mailto:pakpham@gmail.com" class="btn-floating yellow darken-1"><i class="material-icons">mail</i></a></li>
+      <!-- <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li> -->
+      <li><a onclick="clickPhone()" class="btn-floating blue"><i class="material-icons">local_phone</i> </a></li>
+    </ul>
+  </div>
+  <!-- ============================================================= -->
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  
+  <!--===============================================================-->
+
+  <!-- =========  CHART CANVAS  ======================================= -->
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- ================================================================ -->
+
+  <!-- ======================= METER CHAR  ======================== -->
+  <script src="js/raphael-2.1.4.min.js"></script>
+  <script src="js/justgage.js"></script>
+  <!-- =============================================================== -->
+
+  <script src="js/rSlider.min.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    var socket = io();
+  </script>
+
+</body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".switch").click(function(){
+      alert("[FUNCTION NOT READY] Im sorry, system will update soon!");
+    })
+  })
+  document.getElementById("btn-change").classList.add('disabled');
+  document.getElementById("change-loader").classList.remove('determinate');
+
+  var settingData;
+  var timer, timerRealTime;
+  var warningSaliValue;
+  var warningTemperValue;
+  socket.emit('setting-site',{});
+
+  function readTimer() {
+    var temp;
+    temp = document.getElementById("timer").value;
+    if (temp == "") {
+      temp = timer;
+    }
+    return temp;
+  }
+  // function readTimerRealTime() {
+  //   var temp;
+  //   temp = document.getElementById("timer-realtime").value;
+  //   if (temp == "") {
+  //     temp = timerReal;
+  //   }
+  //   return temp;
+  // }
+  function readSlider () {
+    warningSaliValue = document.getElementById("slider-sali").value;
+    warningTemperValue = document.getElementById('slider-temper').value;
+  }
+
+  function clickChange() {
+    document.getElementById("btn-change").classList.add('disabled');
+    document.getElementById("change-loader").classList.remove('determinate');
+    var email = document.getElementById("email").value;
+    if (email != ""){
+      email = email + ',next';
+      console.log(email);
+    }
+    timer = readTimer();
+    readSlider();
+    //timerReal = readTimerRealTime();
+    var obj = {"timer": timer, "timerReal": '3', "warningTemperValue": warningTemperValue, "warningSaliValue": warningSaliValue, "email": email};
+    socket.emit ("setting", obj);
+    //console.log ("EMIT: " + obj.timer);
+  }
+
+  socket.on ('settingDone', function(data) {
+    setTimeout(function(){
+      data = JSON.parse (data);
+      settingData = data;
+      timer  = data.timer;
+      //timerReal = data.timerReal;
+      warningSaliValue = data.warningSaliValue;
+      warningTemperValue = data.warningTemperValue;
+      document.getElementById ('timer').value = timer;
+      document.getElementById("slider-sali").value = warningSaliValue;
+      document.getElementById('slider-temper').value = warningTemperValue;
+      // document.getElementById ('timerReal-display').innerHTML = timerReal;
+
+      //-----------------------------------------updata BTN
+      document.getElementById("btn-change").classList.remove('disabled');
+      document.getElementById("change-loader").classList.add('determinate');
+    },2000);
+
+  })
+</script>
+</html>

@@ -1,0 +1,285 @@
+		<!DOCTYPE html>
+		<html>
+		<head>
+			<title>Login</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+			<!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<style type="text/css">
+			.img{
+				border-radius: 50%;
+			}
+			@media screen and (max-width: 700px) {
+				#myHeader {
+					width: auto;
+					float: left;
+					font-size: 10px;
+					text-align: left;
+				}
+				#sidebar {
+					width: auto;
+					float: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="background-image: url(pics/); background-position: right;">
+			<div class="row">
+				<div class="col s12 ">
+					  <nav class="cyan" role="navigation">
+    <div class="nav-wrapper">
+      <a id="logo-container" href="#" class="brand-logo">HKteam</a>
+      <ul class="right hide-on-med-and-down">
+        <li></li>
+        <li></li>
+        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+        <li><a data-activates="nav-mobile"><i class="material-icons">view_module</i></a></li>
+        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
+      </ul>
+
+      <ul id="slide-out" class="side-nav" style="background-image: url('images/background/navBar.png');">
+        <li>
+          <center>
+            <div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+              <a href="#!user"><img  style="height: 100px; width: 100px" class="circle" src="images/avatar/khuong1.jpg"></a>
+              <a href="#!name"><span class="white-text name">Pham Khuong</span></a>
+              <a href="#!email"><span class="white-text email">pakpham@gmail.com</span></a>
+            </div>
+          </center>
+          <hr>
+        </li>
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">home</i>Home</a></li>
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">call_split</i> Control  Motor</a></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a  style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" class="collapsible-header"> <i class="material-icons">ac_unit</i>  Sensor<i class="material-icons">arrow_drop_down</i></a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="#!">Salinity</a></li>
+                  <li><a href="#!">Temperature</a></li>
+                  <li><a href="#!">Oxi</a></li>
+                  <li><a href="#!">Axit</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li><a style="font-size: 20px; font-family: ;  font-weight: bold; color: #ede7f6" href="#!"> <i class="material-icons">info</i>About</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!">Home</a></li>
+        <li><a href="#!">Control Motor</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Sensor<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!">Salinity</a></li>
+          <li><a href="#!">Temperature</a></li>
+          <li><a href="#!">Oxi</a></li>
+          <li><a href="#!">Axit</a></li>
+        </ul>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+				</div>
+				<div class="col s12"><br></div>
+				<div class="col s3"></div>
+				<div class="col s6" style="border: groove; border-width:  1px; border-bottom-right-radius: 50px;  border-bottom-left-radius: 50px; border-top-left-radius: 50px; border-top-right-radius: 50px;" align="center">
+					<p style="font-family: Baskerville; font-size: 30px; color: #26c6da">SIGN IN</p>
+					<div>
+						<div class="row" align="center">
+							<form class="col s12">
+								<div class="row">
+									<div class="input-field col s12" id="clickAccount">
+										<i class="material-icons prefix">account_circle</i>
+										<input id="account" type="text" class="validate"  data-length="10" >
+										<label for="icon_prefix">Account</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">vpn_key</i>
+										<input id="pass" type="tel" class="validate"  data-length="10" >
+										<label for="icon_telephone">Password</label>
+									</div>
+
+								</div>
+							</form>
+							<a class="waves-effect waves-light btn" id="login">LOGIN</a>
+							<div id="preloader">
+								<div class="preloader-wrapper big active">
+									<div class="spinner-layer spinner-blue">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
+										</div><div class="gap-patch">
+											<div class="circle"></div>
+										</div><div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
+									</div>
+
+									<div class="spinner-layer spinner-red">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
+										</div><div class="gap-patch">
+											<div class="circle"></div>
+										</div><div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
+									</div>
+
+									<div class="spinner-layer spinner-yellow">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
+										</div><div class="gap-patch">
+											<div class="circle"></div>
+										</div><div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
+									</div>
+
+									<div class="spinner-layer spinner-green">
+										<div class="circle-clipper left">
+											<div class="circle"></div>
+										</div><div class="gap-patch">
+											<div class="circle"></div>
+										</div><div class="circle-clipper right">
+											<div class="circle"></div>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col s3"></div>
+				<div class="col s6 offset-s9"><span class="flow-text">
+					<a id="menu" class="waves-effect waves-light btn btn-floating pulse btn-large" ><i class="material-icons">adb</i></a>
+				</span></div></div>
+
+
+
+
+				<footer class="page-footer teal">
+					<div class="container">
+						<div class="row">
+							<div class="col l6 s12">
+								<h5 class="white-text main">Objectives: </h5>
+								<p class="grey-text text-lighten-4"> With this solution, we aim to better the lives of those whose lives are currently being damaged by the increasing salinity levels. These are our objectives:
+									<ul >
+										<li>- Farmers react timely to unstable fluctuations in salinity levels. </li>
+										<li>- Authorities and professional researchers have access to a reliable data channel.</li>
+									</ul>
+								</p>
+
+
+							</div>
+							<div class="col l5 s12">
+								<h5>LINKS:</h5>
+								<ul>
+									<li>http://ngapmandbscl.org</li>
+									<li>https://ngthuyngan.herokuapp.com</li>
+								</ul>
+
+							</div>
+							<div class="col l1 s12">
+								<h5 class="white-text">Connect</h5>
+								<ul>
+									<li><a href="https://facebook.com/khuong250117"><i class="fa fa-facebook-square" style="font-size:36px;color:#3b5998"></i></a></li>
+									<li><a class="white-text" href="https://plus.google.com/u/0/101694428546619868396"><i class="fa fa-google-plus-square" style="font-size:36px"></i></a></li>
+									<li><a class="white-text" href="#!"><i class="material-icons" onclick="clickPhone()" style="font-size: 36px">phone</i></a></li>
+									<li><a class="white-text" href="mailto:pakpham@gmail.com"><i class="material-icons" style="font-size: 36px">email</i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<div class="container" style="text-align: center;">
+							© 2017 Nguyen Huynh Anh Duy. Pham Anh Khuong. Le Manh Hung
+							<br>
+							All Rights Reserved</
+						</div>
+					</div>
+				</footer>
+
+
+				<!-- =============  MENU FIX  =================== -->
+
+				<div class="fixed-action-btn horizontal" id="menu-fix">
+					<a class="btn-floating btn-large red pulse">
+						<i class="large material-icons">adb</i>
+					</a>
+					<ul>
+						<li><a href="https://www.facebook.com/nhaduy" class="btn-floating red"><i class="material-icons">face</i></a></li>
+						<li style=""><a href="https://www.facebook.com/khuong250117" class="btn-floating red"><i class="material-icons" style="background-color: cyan">face</i></a></li>
+						<li><a href="mailto:pakpham@gmail.com" class="btn-floating yellow darken-1"><i class="material-icons">mail</i></a></li>
+						<!-- <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li> -->
+						<li><a onclick="clickPhone()" class="btn-floating blue"><i class="material-icons">local_phone</i> </a></li>
+					</ul>
+				</div>
+				<!-- ============================================================= -->
+
+				<script src="/socket.io/socket.io.js"></script>
+				<script type="text/javascript">
+					var socket = io();
+				</script>
+
+				<script type="text/javascript">
+					var counterClickAccount = 0;
+					$(function (){
+						$('#preloader').hide();
+						$("#menu").click(function(){
+							$('.tap-target').tapTarget('open');
+						});
+						$('#clickAccount').click(function(){
+							if (counterClickAccount == 0){
+								Materialize.toast('Vui long lien he pakpham@gmail.com', 5000);
+							}
+							++counterClickAccount;
+						});
+						$('#login').click(function(){
+							$('#login').hide();
+							$('#preloader').show();
+							var dataAccount = document.getElementById('account').value;
+							var dataPass = document.getElementById('pass').value;
+						//alert(dataAccount+dataPass);
+						socket.emit ('login', {'account':dataAccount,'pass':dataPass});
+					})
+
+					});
+
+					socket.on ('authentication', function (data){
+						if (data.login == 1) {
+						//alert ("Sign in OK!");
+						setTimeout(function(){
+							window.location="/control-motor";
+						},1500);
+						
+					}
+					else {
+						setTimeout(function(){
+							$('#login').show();
+							$('#preloader').hide();
+							alert("Wrong password!");
+						},1000);
+						
+					}
+				})
+			</script>
+
+		</body>
+		</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Began on 19 January 2016  -->  
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Constellations</title>
+	<link rel="icon" href="../../assets/images/favicon.ico">
+	<style>
+
+	#canvas{
+		background-color:#070719;
+		margin-top: 5px;
+	}
+
+	#one{
+		position: relative; 
+		cursor:pointer;
+		font-family:arial;
+		font-size: 18px;
+		left:-530px;
+		top: -55px;
+	}
+
+	html{
+		background-color:#E8E8E8 ;
+	}
+	
+</style>
+
+</head>
+
+<body>
+	<center> 
+
+		<canvas id="canvas" width="1500"  height="730"></canvas>
+
+
+	</center>
+	
+	
+	<script src="js/particles.js"></script>
+	<script type="text/javascript">
+
+		
+		document.getElementById('canvas').width = w();
+
+		document.getElementById('canvas').height = h();
+		//alert (w + '  ' + h);
+		function w() {
+			var w = screen.width;
+			return w;
+		}
+		function h() {
+			var h = screen.height;
+			return h;
+		}
+		setTimeout (function(){
+			alert("WEBSITE DANG TRONG QUA TRIH PHAT TRIEN< VUI LONG QUA LAI SAU. THAKS <br/>pakpham@gmail.com");
+		},3000);
+
+	</script>
+	
+</body>
+
+</html>

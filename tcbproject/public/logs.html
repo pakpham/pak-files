@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+	<title>LOGS</title>
+</head>
+<body>
+<b>NHẬT KÍ CẬP NHẬT</b>
+<br>
+<i style="color: red">Vui lòng không tiết lộ bất kì đường link cũng như bất kì thông tin nào liên quan đến những gì bạn đang theo dõi trên đây.THKS!></i>
+<br><hr>
+<p href="">BÂY GIỜ LÀ: <span id="time"></span>.  <span id="loichuc"></span></p>
+<hr>
+
+<ul>
+	<li>
+		20/01/18: Khởi tạo các tài khoảng dịch máy chủ: gmail, heroku, git. Khởi tạo máy chủ
+		21/01.18: Viêt scrip server. Tạo link: <i>dieukhienmoitruong.herokuapp.com</i>
+	</li>
+</ul>
+
+
+</body>
+
+
+<script type="text/javascript">
+		var time = new Date ();
+		var day = time.getDate();
+		var month = time.getMonth() + 1;
+		var hour = time.getHours();
+		var min = time.getMinutes();
+		var year = time.getFullYear();
+		var timeDisplay =  hour +'h' + min + ', ' + day + '/'+ month + '/' + year;
+		document.getElementById('time').innerHTML = timeDisplay;
+		var loichuc;
+		var time = new Date();
+      	var hour = time.getHours();
+      // alert(hour);
+
+      	function loichuc() {
+        if ((hour>4)&&(hour<11)) {
+          return "Chúc buổi sáng ấp ám!"
+        }
+        else if ((hour>=11)&&(hour<14)){
+          return "Chúc buổi trưa vui vẽ!"
+        }
+        else if ((hour>=14)&&(hour<18)) {
+          return "Chúc buổi chiều mát mẻ!"
+        }
+         else if ((hour>=18)&&(hour<22)) {
+          return "Chúc buổi tối tuyệt vời!"
+        }
+        else{
+          return "Chúc ngủ ngon!"
+        }
+      }
+      document.getElementById('loichuc').innerHTML  = loichuc();
+
+</script>
+</html>
